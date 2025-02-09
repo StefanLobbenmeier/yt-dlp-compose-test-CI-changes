@@ -86,12 +86,11 @@ compose {
                     }
                 packageVersion = appVersion
 
-                targetFormats(
-                    TargetFormat.Deb,
-                    TargetFormat.Dmg,
-                    TargetFormat.AppImage,
-                    TargetFormat.Msi,
-                )
+                if (System.getProperty("os.name").startsWith("Windows", ignoreCase = true)) {
+                    targetFormats(TargetFormat.AppImage, TargetFormat.Msi)
+                } else {
+                    targetFormats(TargetFormat.Deb, TargetFormat.Dmg)
+                }
 
                 // lwjgl3 needs sun.misc.Unsafe to be included in the bundled JRE
                 modules("jdk.unsupported")
