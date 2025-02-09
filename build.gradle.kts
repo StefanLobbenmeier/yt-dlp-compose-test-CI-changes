@@ -91,10 +91,10 @@ compose {
                     }
                 packageVersion = appVersion
 
-                if (operatingSystemName.startsWith("Windows", ignoreCase = true)) {
-                    targetFormats(TargetFormat.AppImage, TargetFormat.Msi)
+                if (!operatingSystemName.startsWith("Mac", ignoreCase = true)) {
+                    targetFormats(TargetFormat.AppImage, TargetFormat.Msi, TargetFormat.Deb)
                 } else {
-                    targetFormats(TargetFormat.Deb, TargetFormat.Dmg)
+                    targetFormats(TargetFormat.Dmg)
                 }
 
                 // lwjgl3 needs sun.misc.Unsafe to be included in the bundled JRE
