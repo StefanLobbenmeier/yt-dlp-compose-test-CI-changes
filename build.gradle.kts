@@ -89,7 +89,7 @@ compose {
                 targetFormats(
                     TargetFormat.Deb,
                     TargetFormat.Dmg,
-                    TargetFormat.Exe,
+                    TargetFormat.AppImage,
                     TargetFormat.Msi,
                 )
 
