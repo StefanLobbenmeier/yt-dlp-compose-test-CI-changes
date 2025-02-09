@@ -77,7 +77,12 @@ compose {
             mainClass = "MainKt"
 
             nativeDistributions {
+                val operatingSystemName = System.getProperty("os.name")
                 val processorArchitecture = System.getProperty("os.arch")
+
+                println("operatingSystemName = $operatingSystemName")
+                println("processorArchitecture = $processorArchitecture")
+
                 packageName =
                     when (processorArchitecture) {
                         "aarch64" -> "yt-dlp-compose-arm64"
@@ -86,7 +91,7 @@ compose {
                     }
                 packageVersion = appVersion
 
-                if (System.getProperty("os.name").startsWith("Windows", ignoreCase = true)) {
+                if (operatingSystemName.startsWith("Windows", ignoreCase = true)) {
                     targetFormats(TargetFormat.AppImage, TargetFormat.Msi)
                 } else {
                     targetFormats(TargetFormat.Deb, TargetFormat.Dmg)
