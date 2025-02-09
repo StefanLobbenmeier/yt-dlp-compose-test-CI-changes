@@ -2,7 +2,7 @@ name: Release a distribution
 
 on:
   push:
-    branches: [ "test-ci" ]
+    branches: [ "test-ci*" ]
   workflow_dispatch:
     inputs:
       version:
