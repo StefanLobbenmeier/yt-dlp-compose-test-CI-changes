@@ -102,6 +102,7 @@ compose {
                     perUserInstall = true
                     shortcut = true
                     upgradeUuid = "760c3be8-21cf-43fe-ba50-241d1cc25ae8"
+                    includeAllModules = true
                 }
 
                 modules(
